@@ -4,20 +4,28 @@ GameRules:
 	Time = 300 
 	//if luigi.health <= 0 then GameOver
 	
+create room nowhere_divided_by2 'asdfsdfas'
+	paths = nowhere through 'your mom'
+	items = nothing
+	hostileNpcs = dad
+	
+create item nothing 'nothing'
+	
 create room northern_tower_level_1  'Northern Tower level 1'
 	paths = 
 		nowhere through 'Door'
 		northern_tower_level_2  through 'Stairs' requires key
 	items = key
 	weapons = sword
-	hostileNpcs = monster skaven
-	players = luigi mario
-
+	hostileNpcs = monster skaven skaven skaven skaven
+	players = luigi
+	
 create room northern_tower_level_2  'Northern Tower level 2'
 	paths =	northern_tower_level_1 through 'Stairs'
  
 create room nowhere 'Nowhere'
 	paths = northern_tower_level_1 through 'door'
+	nowhere_divided_by2 through 'fish'
 	weapons = glass_sword
 	
 create weapon sword 'sword' 
@@ -46,9 +54,17 @@ create hostilenpc skaven 'skaven'
 	damage = 2
 
 create player luigi 'Luigi'
-	health = 6
+	health = 600
 	carryCapacity = 3
 
 create player mario 'Mario'
 	health = 6
 	carryCapacity = 3
+
+create hostilenpc dad 'daddy'
+	aggressive = true
+	escapeable = false
+	health = 1000
+	damage = 69
+	
+	
