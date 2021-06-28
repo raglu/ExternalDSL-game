@@ -1,24 +1,24 @@
 GameWorld "Luigi's tower" :
-
-GameRules:
-	Time = 300 
-	//if luigi.health <= 0 then GameOver
+	
+create room nowhere_divided_by2 'asdfsdfas'
+	paths = nowhere through 'your mom'
+	entities = nothing
+	
+create item nothing 'nothing'
 	
 create room northern_tower_level_1  'Northern Tower level 1'
 	paths = 
 		nowhere through 'Door'
 		northern_tower_level_2  through 'Stairs' requires key
-	items = key
-	weapons = sword
-	hostileNpcs = monster skaven
-	players = luigi mario
-
+	entities = key sword monster skaven skaven skaven skaven luigi
+	
 create room northern_tower_level_2  'Northern Tower level 2'
 	paths =	northern_tower_level_1 through 'Stairs'
  
 create room nowhere 'Nowhere'
 	paths = northern_tower_level_1 through 'door'
-	weapons = glass_sword
+	nowhere_divided_by2 through 'fish'
+	entities = glass_sword
 	
 create weapon sword 'sword' 
 	damage = 3
