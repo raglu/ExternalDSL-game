@@ -1,0 +1,68 @@
+GameWorld "Luigi's tower expanded"
+
+GameRules:
+	time = 300 
+	//if player.health <= 0 then GameOver
+	//if player.location == tower_level_2 then win
+	
+room entrance 'Entrance'
+	paths: tower_level_1 through 'Door'
+		nowhere through 'south'
+	players: luigi
+	weapons: sword
+	
+room tower_level_1  'Tower level 1'
+	paths: 
+		entrance through 'Door'
+		tower_level_2  through 'Stairs' requires key
+	items: key
+	hostileNpcs: annoying_rat
+	
+room tower_level_2  'Tower level 2'
+	paths: tower_level_1 through 'Stairs'
+ 
+room nowhere 'Nowhere'
+	paths: 
+		entrance through 'north'
+		monster_camp through 'east'
+		chasm through 'down chasm'
+
+room monster_camp 'Monster Camp'
+	paths:
+		nowhere through 'west'
+	weapons: glass_sword
+	hostileNpcs: disiterested_monster
+	
+room chasm
+	'bottom of a chasm, you cannot get out'
+
+weapon sword 'Sword' 
+	damage= 3
+	durability= 5	
+	weight= 1
+
+weapon glass_sword 'Glass sword'
+	damage= 6
+	durability= 1
+	weight= 1
+
+item key 'key'
+	weight= 0
+
+hostilenpc disiterested_monster 'disinterested monster' 
+	health= 5
+	damage= 2
+	escapeable = false
+
+hostilenpc annoying_rat 'annoying rat'
+	health= 2
+	damage= 2
+	escapeable = true
+	aggressive = true
+	
+player luigi 'Luigi'
+	health = 10
+	carryCapacity = 3
+
+	
+	
